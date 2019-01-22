@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
+    "start": "node server.js",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "heroku-postbuild": "webpack -p",
+    "dev": "webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "keywords": [],
   "author": "vosem",
@@ -35,6 +36,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   }
