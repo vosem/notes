@@ -21,9 +21,16 @@ module.exports = {
             loader: "css-loader" // translates CSS into CommonJS
           },
           {
+            loader: "resolve-url-loader"
+          },
+          {
             loader: "sass-loader" // compiles Sass to CSS
           }
         ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: ["file-loader"]
       }
     ]
   },

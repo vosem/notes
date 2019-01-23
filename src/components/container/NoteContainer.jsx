@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
-// import Note from "../note/Note.jsx";
+import Note from "../note/Note.jsx";
 
 class NoteContainer extends Component {
 	constructor() {
@@ -8,9 +8,26 @@ class NoteContainer extends Component {
 		this.state = {
 			title: ""
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
+
+	handleChange(event) {
+		this.setState({ [event.target.id]: event.target.value });
+	}
+
 	render() {
-		return <form id="noteContainer">Hi there</form>;
+		const { title } = this.state;
+		return (
+			<form id="article-form">
+				<Note
+					label="title"
+					type="text"
+					id="title"
+					value={title}
+					handleChange={this.handleChange}
+				/>
+			</form>
+		);
 	}
 }
 
