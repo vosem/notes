@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
 import Note from "../note/Note.jsx";
+import Author from "../author/Author.jsx";
 
 class NoteContainer extends Component {
 	constructor() {
@@ -19,6 +20,12 @@ class NoteContainer extends Component {
 		const { title } = this.state;
 		return (
 			<form id="article-form">
+								<Author
+					type="text"
+					id="author"
+					value={title}
+					handleChange={this.handleChange}
+				/>
 				<Note
 					label="title"
 					type="text"
