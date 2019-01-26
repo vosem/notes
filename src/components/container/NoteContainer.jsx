@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDom from "react-dom";
 import Note from "../note/Note.jsx";
 import Author from "../author/Author.jsx";
+import './NoteContainer.scss';
 
 class NoteContainer extends Component {
 	constructor() {
@@ -9,29 +10,34 @@ class NoteContainer extends Component {
 		this.state = {
 			title: ""
 		};
-		this.handleChange = this.handleChange.bind(this);
+		this.handleAuthorChange = this.handleAuthorChange.bind(this);
+		this.handleNoteChange = this.handleNoteChange.bind(this);
 	}
 
-	handleChange(event) {
+	handleAuthorChange(event) {
+		this.setState({ [event.target.id]: event.target.value });
+	}
+	handleNoteChange(event) {
 		this.setState({ [event.target.id]: event.target.value });
 	}
 
 	render() {
 		const { title } = this.state;
+		const { author } = this.state;
 		return (
-			<form id="article-form">
-								<Author
+			<form id="note-form">
+				<Author
 					type="text"
 					id="author"
-					value={title}
-					handleChange={this.handleChange}
+					value={author}
+					handleAuthorChange={this.handleAuthorChange}
 				/>
 				<Note
 					label="title"
 					type="text"
 					id="title"
 					value={title}
-					handleChange={this.handleChange}
+					handleNoteChange={this.handleNoteChange}
 				/>
 			</form>
 		);

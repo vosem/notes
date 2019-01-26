@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import ReactDom from "react-dom";
 import PropTypes from "prop-types";
 
-const Note = ({ label, text, type, id, value, handleChange }) => (
-	<div className="form-group">
+const Note = ({ label, text, type, id, value, handleNoteChange }) => (
+	<div className="note-group">
 		<label htmlFor={label}>{text}</label>
 		<textarea
 			type={type}
-			className="form-control"
+			className="note-body"
 			id={id}
 			value={value}
-			onChange={handleChange}
+			onChange={handleNoteChange}
 			required
 		/>
 	</div>
@@ -20,7 +20,7 @@ Note.propTypes = {
 	type: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
-	handleChange: PropTypes.func.isRequired
+	handleNoteChange: PropTypes.func.isRequired
 };
 
 export default Note;
